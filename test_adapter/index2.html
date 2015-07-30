@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="/mypath/socket.io.js"></script>
+</head>
+<body>
+
+</body>
+<script>
+    var socket = io('localhost:8001/mynamespace', {path: '/mypath'}); // TIP: io() with no args does auto-discovery
+
+    socket.on('this', function (data) { // TIP: you can avoid listening on `connect` and listen on events directly too!
+        console.log(data);
+    });
+
+    socket.on('my message', function (data) { // TIP: you can avoid listening on `connect` and listen on events directly too!
+        console.log(data);
+    });
+
+
+    socket.emit('say to someone', {foo: 'foo'});
+</script>
+</html>
